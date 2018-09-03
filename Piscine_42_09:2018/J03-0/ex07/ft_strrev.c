@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thugueno <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/03 00:48:43 by thugueno          #+#    #+#             */
-/*   Updated: 2018/09/03 01:04:17 by thugueno         ###   ########.fr       */
+/*   Created: 2018/09/03 05:10:47 by thugueno          #+#    #+#             */
+/*   Updated: 2018/09/03 10:04:30 by thugueno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void		ft_putstr(char *str);
-
-void		ft_putchar(char c)
+char	*ft_strrev(char *str)
 {
-	write(1, &c, 1);
-}
+	int		i;
+	int		j;
+	char	swap;
 
-int		main(void)
-{
-	char	*str;
-
-	str = "GROSSE BITE                          b";
-	ft_putstr(str);
-	return(0);
+	j = 0;
+	i = 0;
+	while (str[i])
+	{
+		i++;
+	}
+	i--;
+	while (i > j)
+	{
+		swap = str[j];
+		str[j] = str[i];
+		str[i] = swap;
+		j++;
+		i--;
+	}
+	return (str);
 }

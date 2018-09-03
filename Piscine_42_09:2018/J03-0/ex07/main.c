@@ -1,20 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thugueno <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/02 23:50:04 by thugueno          #+#    #+#             */
-/*   Updated: 2018/09/03 08:58:32 by thugueno         ###   ########.fr       */
+/*   Created: 2018/09/03 05:11:04 by thugueno          #+#    #+#             */
+/*   Updated: 2018/09/03 14:03:33 by thugueno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void		ft_swap(int *a, int *b)
-{
-	int		swap;
+#include <unistd.h>
 
-	swap = *a;
-	*a = *b;
-	*b = swap;
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+char *ft_strrev(char *str);
+
+void	ft_putstr(char *str);
+
+int		main(void)
+{
+	char	str[] = "dyvwr";
+
+	ft_putstr(str);
+	ft_putchar('\n');
+	ft_strrev(str);
+//	str[0] = 'A';
+	ft_putstr(str);
+	ft_putchar('\n');
 }

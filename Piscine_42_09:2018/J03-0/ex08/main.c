@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thugueno <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/02 23:50:04 by thugueno          #+#    #+#             */
-/*   Updated: 2018/09/03 08:58:32 by thugueno         ###   ########.fr       */
+/*   Created: 2018/09/03 14:34:10 by thugueno          #+#    #+#             */
+/*   Updated: 2018/09/03 20:40:59 by thugueno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void		ft_swap(int *a, int *b)
-{
-	int		swap;
+#include <unistd.h>
 
-	swap = *a;
-	*a = *b;
-	*b = swap;
+void	ft_putnbr(int nb);
+
+int		ft_atoi(char *str);
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
 }
+
+int		main(void)
+{
+	char	*str;
+
+		str	="2147483647";
+	ft_atoi(str);
+	ft_putnbr(ft_atoi(str));
+}
+
+
