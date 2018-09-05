@@ -1,0 +1,5 @@
+Credentials cache: API:B320E471-6D97-48A7-820F-D3A9B0C78EEA
+        Principal: thugueno@42.FR
+
+  Issued                Expires               Principal
+Aug 27 16:20:50 2018  Sep  3 16:20:42 2018  krbtgt/42.FR@42.FR
