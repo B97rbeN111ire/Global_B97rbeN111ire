@@ -1,45 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_sort_integer_table.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thugueno <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/02 00:57:30 by thugueno          #+#    #+#             */
-/*   Updated: 2018/09/03 16:03:29 by thugueno         ###   ########.fr       */
+/*   Created: 2018/09/06 02:26:14 by thugueno          #+#    #+#             */
+/*   Updated: 2018/09/06 03:26:23 by thugueno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
-
-void	ft_whilenmbr(long n)
+void		ft_sort_integer_table(int *tab, int size)
 {
 	int		i;
+	int 	j;
+	int		swap;
 
-	i = 1000000000;
-	while (n / i % 10 == 0)
-		i = i / 10;
-	while (i >= 1)
+	i = 1;
+	j = 0;
+	swap = 0;
+	while (i < size)
 	{
-		ft_putchar((n / i % 10) + '0');
-		i = i / 10;
-	}
-}
-
-void	ft_putnbr(int nb)
-{
-	long	s_nb;
-
-	s_nb = nb;
-	if (s_nb == 0)
-		ft_putchar('0');
-	else
-	{
-		if (s_nb < 0)
+		if (tab[j] > tab[i])
 		{
-			ft_putchar('-');
-			s_nb = s_nb * -1;
+			swap = tab[j];
+			tab[j] = tab [i];
+			tab[i] = swap;
+			i = 1;
+			j = 0;
 		}
-		ft_whilenmbr(s_nb);
+		else 
+		{
+			i++;
+			j++;
+		}
 	}
 }
