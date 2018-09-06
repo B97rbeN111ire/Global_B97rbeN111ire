@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_integer_table.c                            :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thugueno <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/06 02:26:14 by thugueno          #+#    #+#             */
-/*   Updated: 2018/09/06 04:06:35 by thugueno         ###   ########.fr       */
+/*   Created: 2018/09/06 15:06:51 by thugueno          #+#    #+#             */
+/*   Updated: 2018/09/06 15:24:42 by thugueno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void		ft_sort_integer_table(int *tab, int size)
-{
-	int		i;
-	int		j;
-	int		swap;
+void		ft_putchar(char c);
 
-	i = 1;
-	j = 0;
-	swap = 0;
-	while (i < size)
+void		ft_putnbr(int nb)
+{
+	unsigned int	nbr;
+
+	if (nb < 0)
 	{
-		if (tab[j] > tab[i])
-		{
-			swap = tab[j];
-			tab[j] = tab[i];
-			tab[i] = swap;
-			i = 1;
-			j = 0;
-		}
-		else
-		{
-			i++;
-			j++;
-		}
+		ft_putchar('-');
+		nb *= -1;
 	}
+	nbr = nb;
+	if (nbr > 9)
+		ft_putnbr(nbr / 10);
+	ft_putchar(nbr % 10 +48);
 }

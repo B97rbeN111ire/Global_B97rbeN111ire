@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_integer_table.c                            :+:      :+:    :+:   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thugueno <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/06 02:26:14 by thugueno          #+#    #+#             */
-/*   Updated: 2018/09/06 04:06:35 by thugueno         ###   ########.fr       */
+/*   Created: 2018/09/06 11:11:21 by thugueno          #+#    #+#             */
+/*   Updated: 2018/09/06 12:01:19 by thugueno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void		ft_sort_integer_table(int *tab, int size)
+int		ft_iterative_factorial(int nb)
 {
-	int		i;
-	int		j;
-	int		swap;
+	int		result;
 
-	i = 1;
-	j = 0;
-	swap = 0;
-	while (i < size)
+	result = 1;
+	if (nb == 0)
+		return (1);
+	if (nb > 12)
+		return (0);
+	while (nb > 0)
 	{
-		if (tab[j] > tab[i])
+		if (nb <= 12)
 		{
-			swap = tab[j];
-			tab[j] = tab[i];
-			tab[i] = swap;
-			i = 1;
-			j = 0;
-		}
-		else
-		{
-			i++;
-			j++;
+			result = result * nb;
+			nb--;
 		}
 	}
+	return (result);
 }

@@ -1,38 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_integer_table.c                            :+:      :+:    :+:   */
+/*   ft_generic.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thugueno <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/06 02:26:14 by thugueno          #+#    #+#             */
-/*   Updated: 2018/09/06 04:06:35 by thugueno         ###   ########.fr       */
+/*   Created: 2018/09/06 18:00:08 by thugueno          #+#    #+#             */
+/*   Updated: 2018/09/06 18:01:43 by thugueno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void		ft_sort_integer_table(int *tab, int size)
-{
-	int		i;
-	int		j;
-	int		swap;
+#include <unistd.h>
 
-	i = 1;
-	j = 0;
-	swap = 0;
-	while (i < size)
-	{
-		if (tab[j] > tab[i])
-		{
-			swap = tab[j];
-			tab[j] = tab[i];
-			tab[i] = swap;
-			i = 1;
-			j = 0;
-		}
-		else
-		{
-			i++;
-			j++;
-		}
-	}
+void		ft_generic(void)
+{
+	write(1, "Tut tut ; Tut tut\n", 18);
 }
