@@ -6,14 +6,14 @@
 /*   By: thugueno <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 18:02:13 by thugueno          #+#    #+#             */
-/*   Updated: 2018/09/06 19:03:04 by thugueno         ###   ########.fr       */
+/*   Updated: 2018/09/06 21:16:14 by thugueno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <unistd.h>
 
-void 		ft_24_11(int h, int h2)
+void		ft_24_11(int h, int h2)
 {
 	if (h == 24)
 		h -= h;
@@ -24,7 +24,7 @@ void 		ft_24_11(int h, int h2)
 void		ft_13_22(int h, int h2)
 {
 	h -= 12;
-	h2 = h +1;
+	h2 = h + 1;
 	printf(" %d.00 P.M. AND %d.00 P.M.\n", h, h2);
 }
 
@@ -52,22 +52,9 @@ void		ft_takes_place(int hour)
 	if (hour == 12)
 		ft_12_13(h, h2);
 	if (hour == 23)
-		ft_23_00(h, h2);	
+		ft_23_00(h, h2);
 	if (hour <= 11 || hour == 24)
 		ft_24_11(h, h2);
 	if (hour >= 13 && hour <= 22)
 		ft_13_22(h, h2);
-}
-
-int		main(void)
-{
-	int		i;
-	
-	i = 1;
-	while (i < 25)
-	{
-		ft_takes_place(i);
-		i++;
-	}
-	return (0);
 }

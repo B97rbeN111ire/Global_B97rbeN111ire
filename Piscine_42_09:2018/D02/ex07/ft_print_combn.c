@@ -6,13 +6,16 @@
 /*   By: thugueno <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 04:44:00 by thugueno          #+#    #+#             */
-/*   Updated: 2018/09/05 17:22:58 by thugueno         ###   ########.fr       */
+/*   Updated: 2018/09/06 22:02:15 by thugueno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putchar(char c);
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
 
 int		ft_modulo(int n)
 {
@@ -83,4 +86,13 @@ void	ft_print_combn(int n)
 		}
 		i++;
 	}
+}
+
+int		main(void)
+{
+	int 	n;
+
+	n = 3;
+	ft_print_combn(n);
+	return (0);
 }
