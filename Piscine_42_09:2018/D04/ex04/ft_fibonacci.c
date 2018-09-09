@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_power.c                               :+:      :+:    :+:   */
+/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thugueno <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/06 22:35:53 by thugueno          #+#    #+#             */
-/*   Updated: 2018/09/08 11:41:45 by thugueno         ###   ########.fr       */
+/*   Created: 2018/09/08 11:43:06 by thugueno          #+#    #+#             */
+/*   Updated: 2018/09/08 13:15:22 by thugueno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_iterative_power(int nb, int power)
-{
-	int		nbr;
+#include <stdio.h>
 
-	nbr = nb;
-	if (power < 0)
+int		ft_fibonacci(int index)
+{
+	if (index < 0)
+		return (-1);
+	if (index == 0)
 		return (0);
-	if (power == 0)
-		return (0);
-	while (power > 1)
-	{
-		nbr = nbr * nb;
-		power--;
-	}
-	return (nbr);
+	if (index == 1)
+		return (1);
+	if (index > 0)
+		ft_fibonacci(index - 1);
+	return (ft_fibonacci(index - 1) + ft_fibonacci(index - 2));
 }
