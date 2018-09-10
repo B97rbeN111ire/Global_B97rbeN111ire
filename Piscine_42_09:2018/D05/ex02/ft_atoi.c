@@ -1,46 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_prime.c                                      :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thugueno <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/08 15:13:03 by thugueno          #+#    #+#             */
-/*   Updated: 2018/09/10 11:34:20 by thugueno         ###   ########.fr       */
+/*   Created: 2018/09/10 12:30:28 by thugueno          #+#    #+#             */
+/*   Updated: 2018/09/10 12:52:13 by thugueno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_is_prime(int nb)
+int		ft_atoi(char *str)
 {
 	int		i;
+	int		nbr;
+	int		neg;
 
-	i = 1;
-	if (nb <= 1)
-		return (0);
-	if (nb == 2)
-		return (1);
-	if (nb % 2 == 0)
-		return (0);
-	if (nb < 2147395600)
+	i = 0;
+	nbr = 0;
+	neg = 1;
+	while (str[i] <= ' ')
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		while (i * i < nb)
-			i++;
+		if (str[i] == '-')
+			neg = -1;
+		i++;
 	}
-	else
-		i = 46341;
-	while (i >= 3)
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if (nb % i > 0)
-			i--;
-		else
-			return (0);
+		nbr = nbr * 10 + (str[i] - 48);
+		i++;
 	}
-	return (1);
-}
-
-int		ft_find_next_prime(int nb)
-{
-	while (ft_is_prime(nb) == 0)
-		nb++;
-	return (nb);
+	if (neg == -1)
+		nbr *= neg;
+	return (nbr);
 }
