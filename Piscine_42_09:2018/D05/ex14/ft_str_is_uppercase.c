@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thugueno <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/10 12:30:28 by thugueno          #+#    #+#             */
-/*   Updated: 2018/09/11 23:47:36 by thugueno         ###   ########.fr       */
+/*   Created: 2018/09/12 14:33:32 by thugueno          #+#    #+#             */
+/*   Updated: 2018/09/12 14:36:52 by thugueno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_atoi(char *str)
+int		ft_str_is_uppercase(char *str)
 {
 	int		i;
-	int		nbr;
-	int		neg;
 
 	i = 0;
-	nbr = 0;
-	neg = 1;
-	while (str[i] <= ' ')
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	while (str[i] != '\0')
 	{
-		if (str[i] == '-')
-			neg = -1;
-		i++;
+		if (str[i] >= 'A' && str[i] <= 'Z')
+			i++;
+		else
+			return (0);
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		nbr = nbr * 10 + (str[i] - 48);
-		i++;
-	}
-	if (neg == -1)
-		nbr *= neg;
-	return (nbr);
+	return (1);
 }

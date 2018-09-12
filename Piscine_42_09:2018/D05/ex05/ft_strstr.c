@@ -1,38 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thugueno <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/10 12:30:28 by thugueno          #+#    #+#             */
-/*   Updated: 2018/09/11 23:47:36 by thugueno         ###   ########.fr       */
+/*   Created: 2018/09/10 19:46:22 by thugueno          #+#    #+#             */
+/*   Updated: 2018/09/11 23:43:35 by thugueno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_atoi(char *str)
+char		*ft_strstr(char *str, char *to_find)
 {
 	int		i;
-	int		nbr;
-	int		neg;
+	int		j;
 
 	i = 0;
-	nbr = 0;
-	neg = 1;
-	while (str[i] <= ' ')
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	if (to_find[i] == '\0')
+		return (str);
+	while (str[i] != '\0')
 	{
-		if (str[i] == '-')
-			neg = -1;
-		i++;
+		j = 0;
+		while (str[i] != to_find[j])
+		{
+			i++;
+		}
+		while ((str[i] == to_find[j]) || (to_find[j] == '\0'))
+		{
+			if (to_find[j] != '\0')
+			{
+				i++;
+				j++;
+			}
+			else
+				return (str + (i - j));
+		}
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		nbr = nbr * 10 + (str[i] - 48);
-		i++;
-	}
-	if (neg == -1)
-		nbr *= neg;
-	return (nbr);
+	return ("(null)");
 }

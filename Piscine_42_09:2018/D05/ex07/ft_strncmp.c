@@ -1,38 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thugueno <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/10 12:30:28 by thugueno          #+#    #+#             */
-/*   Updated: 2018/09/11 23:47:36 by thugueno         ###   ########.fr       */
+/*   Created: 2018/09/11 23:49:11 by thugueno          #+#    #+#             */
+/*   Updated: 2018/09/12 00:20:00 by thugueno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_atoi(char *str)
+int		ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	int		i;
-	int		nbr;
-	int		neg;
+	unsigned int		i;
+	int					value;
 
 	i = 0;
-	nbr = 0;
-	neg = 1;
-	while (str[i] <= ' ')
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	value = 0;
+	while (s1[i] == s2[i] && i < (n - 1))
 	{
-		if (str[i] == '-')
-			neg = -1;
+		value += (s1[i] - s2[i]);
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		nbr = nbr * 10 + (str[i] - 48);
-		i++;
-	}
-	if (neg == -1)
-		nbr *= neg;
-	return (nbr);
+	value += (s1[i] - s2[i]);
+	return (value);
 }
