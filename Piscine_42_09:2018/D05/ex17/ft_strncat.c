@@ -1,39 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thugueno <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/10 12:30:28 by thugueno          #+#    #+#             */
-/*   Updated: 2018/09/13 14:12:58 by thugueno         ###   ########.fr       */
+/*   Created: 2018/09/12 22:21:00 by thugueno          #+#    #+#             */
+/*   Updated: 2018/09/12 22:27:13 by thugueno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_atoi(char *str)
+char	*ft_strncat(char *dest, char *src, int nb)
 {
 	int		i;
-	int		nbr;
-	int		neg;
+	int		j;
 
 	i = 0;
-	nbr = 0;
-	neg = 1;
-	while (str[i] == ' ' || str[i] == '\f' || str[i] == '\t' || str[i] == '\n'
-			|| str[i] == '\r'|| str[i] == '\v')
+	j = 0;
+	while (dest[i] != '\0')
 		i++;
-	if (str[i] == '-' || str[i] == '+')
+	while (j <= (nb - 1))
 	{
-		if (str[i] == '-')
-			neg = -1;
+		dest[i] = src[j];
 		i++;
+		j++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		nbr = nbr * 10 + (str[i] - 48);
-		i++;
-	}
-	if (neg == -1)
-		nbr *= neg;
-	return (nbr);
+	dest[i + 1] = '\0';
+	return (dest);
 }

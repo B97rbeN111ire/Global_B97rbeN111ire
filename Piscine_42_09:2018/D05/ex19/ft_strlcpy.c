@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thugueno <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/10 12:30:28 by thugueno          #+#    #+#             */
-/*   Updated: 2018/09/13 14:12:58 by thugueno         ###   ########.fr       */
+/*   Created: 2018/09/13 12:50:21 by thugueno          #+#    #+#             */
+/*   Updated: 2018/09/13 13:02:28 by thugueno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_atoi(char *str)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	int		i;
-	int		nbr;
-	int		neg;
+	unsigned int		i;
+	unsigned int		size_c;
 
 	i = 0;
-	nbr = 0;
-	neg = 1;
-	while (str[i] == ' ' || str[i] == '\f' || str[i] == '\t' || str[i] == '\n'
-			|| str[i] == '\r'|| str[i] == '\v')
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	size_c = 0;
+	while (src[size_c] != '\0')
+		size_c++;
+	while (i < (size - 1))
 	{
-		if (str[i] == '-')
-			neg = -1;
+		dest[i] = src[i];
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		nbr = nbr * 10 + (str[i] - 48);
-		i++;
-	}
-	if (neg == -1)
-		nbr *= neg;
-	return (nbr);
+	dest[i] = '\0';
+	return (size_c);
 }

@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thugueno <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/10 12:30:28 by thugueno          #+#    #+#             */
-/*   Updated: 2018/09/13 14:12:58 by thugueno         ###   ########.fr       */
+/*   Created: 2018/09/12 23:22:30 by thugueno          #+#    #+#             */
+/*   Updated: 2018/09/13 12:48:51 by thugueno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_atoi(char *str)
+unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	int		i;
-	int		nbr;
-	int		neg;
+	unsigned int		i;
+	unsigned int		j;
+	unsigned int		size_c;
 
 	i = 0;
-	nbr = 0;
-	neg = 1;
-	while (str[i] == ' ' || str[i] == '\f' || str[i] == '\t' || str[i] == '\n'
-			|| str[i] == '\r'|| str[i] == '\v')
+	j = 0;
+	size_c = 0;
+	while (dest[i] != '\0')
 		i++;
-	if (str[i] == '-' || str[i] == '+')
+	size_c += i;
+	while (src[j] != '\0')
+		j++;
+	size_c += j;
+	j = 0;
+	while (i < (size - 1))
 	{
-		if (str[i] == '-')
-			neg = -1;
+		dest[i] = src[j];
 		i++;
+		j++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		nbr = nbr * 10 + (str[i] - 48);
-		i++;
-	}
-	if (neg == -1)
-		nbr *= neg;
-	return (nbr);
+	dest[i] = '\0';
+	return (size_c);
 }
