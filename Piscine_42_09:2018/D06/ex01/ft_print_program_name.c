@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_print_program_name.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thugueno <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/12 22:21:00 by thugueno          #+#    #+#             */
-/*   Updated: 2018/09/14 11:29:51 by thugueno         ###   ########.fr       */
+/*   Created: 2018/09/14 09:55:03 by thugueno          #+#    #+#             */
+/*   Updated: 2018/09/14 10:19:02 by thugueno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncat(char *dest, char *src, int nb)
+void	ft_putchar(char c);
+
+int		main(int argc, char **argv)
 {
 	int		i;
-	int		j;
 
 	i = 0;
-	j = 0;
-	while (dest[i] != '\0')
-		i++;
-	while (j <= (nb - 1))
+	if (argc > 0)
 	{
-		dest[i] = src[j];
-		i++;
-		j++;
+		while (argv[0][i] != '\0')
+		{
+			ft_putchar(argv[0][i]);
+			i++;
+		}
 	}
-	dest[i] = '\0';
-	return (dest);
+	return (0);
 }
