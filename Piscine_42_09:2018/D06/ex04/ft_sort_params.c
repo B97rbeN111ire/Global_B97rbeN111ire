@@ -6,11 +6,28 @@
 /*   By: thugueno <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/17 10:28:37 by thugueno          #+#    #+#             */
-/*   Updated: 2018/09/17 10:44:30 by thugueno         ###   ########.fr       */
+/*   Updated: 2018/09/17 13:25:18 by thugueno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
+#include <unistd.h>
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void	ft_putstr(char *str)
+{
+	int		i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		ft_putchar(str[i]);
+		i++;
+	}
+}
 
 int		ft_strcmp(char *s1, char *s2)
 {
@@ -28,20 +45,20 @@ int		ft_strcmp(char *s1, char *s2)
 	return (value);
 }
 
-void		ft_sort_integer_table(int argc, char **argv)
+void		ft_sort_char_table(int argc, char **argv)
 {
 	int		i;
-	char	swap[50];
+	char	*swap;
 
-	i = 2;
-	while (i < size)
+	i = 1;
+	while (i < argc)
 	{
-		if (ft_strcmp(argv[i]) > ft_strcomp(argv[i + 1]))
+		if (ft_strcmp(argv[i], argv[i + 1]) > 1)
 		{
-			swap = ft_strcmp(argv[i + 1]);
-			ft_strcmp(argv[i + 1]) = ft_strcmp(argv[i]);
-			ft_strcmp(argv[i]) = swap;
-			i = 2;
+			swap = argv[i + 1];
+			argv[i + 1] = argv[i];
+			argv[i] = swap;
+			i = 1;
 		}
 		else
 		{
@@ -52,11 +69,20 @@ void		ft_sort_integer_table(int argc, char **argv)
 
 int		main(int argc, char **argv)
 {
+	int		i;
+
+	i = 1;
 	if (argc > 1)
 	{
 		ft_sort_char_table(argc, argv);
+		while ( i < argc )
+		{
+			ft_putstr(argv[i]);
+			ft_putchar('\n');
+			i++;
+		}
 	}
 	else
-		ft_putchar("\n");
+		ft_putchar('\n');
 	return (0);
 }

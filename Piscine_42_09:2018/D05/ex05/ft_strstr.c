@@ -6,7 +6,7 @@
 /*   By: thugueno <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 19:46:22 by thugueno          #+#    #+#             */
-/*   Updated: 2018/09/13 19:20:25 by thugueno         ###   ########.fr       */
+/*   Updated: 2018/09/17 13:27:39 by thugueno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char		*ft_strstr(char *str, char *to_find)
 			i++;
 			j++;
 		}
-		if (to_find[j] != '\0')
+		if (to_find[j] == '\0')
 			return (str + (i - j));
 	}
 	return (0);
