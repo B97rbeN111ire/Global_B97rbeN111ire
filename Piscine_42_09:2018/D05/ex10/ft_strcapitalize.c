@@ -6,7 +6,7 @@
 /*   By: thugueno <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 01:35:17 by thugueno          #+#    #+#             */
-/*   Updated: 2018/09/13 18:07:52 by thugueno         ###   ########.fr       */
+/*   Updated: 2018/09/17 11:42:08 by thugueno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,15 @@ char		*ft_strcapitalize(char *str)
 		while (str[i] <= ' ')
 			i++;
 		if (str[i] >= '0' && str[i] <= '9')
-			while (str[i] >= ' ')
+			while ((str[i] >= 'a' && str[i] <= 'z')
+					|| (str[i] >= '0' && str[i] <= '9'))
 				i++;
 		if (str[i] >= 'a' && str[i] <= 'z')
 		{
 			str[i] -= 32;
 			i++;
 			while ((str[i] >= 'a' && str[i] <= 'z')
-				   || (str[i] >= '0' && str[i] <= '9'))
+				|| (str[i] >= '0' && str[i] <= '9'))
 				i++;
 		}
 		i++;
