@@ -6,14 +6,11 @@
 /*   By: thugueno <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/14 09:55:03 by thugueno          #+#    #+#             */
-/*   Updated: 2018/09/18 10:30:20 by thugueno         ###   ########.fr       */
+/*   Updated: 2018/09/18 15:44:29 by thugueno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
+void	ft_putchar(char c);
 
 int		main(int argc, char **argv)
 {
